@@ -13,7 +13,7 @@ try {
     $db_connection = new PDO("mysql:host=$server;dbname=$database", $username, $password);
     $db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "Database Connection Successfull!";
+    //echo "Database Connection Successfull!";
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
