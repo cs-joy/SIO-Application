@@ -8,7 +8,7 @@ if(isset($_POST)) {
     $uname = $_POST['username'];
     $department = $_POST['department'];
     $position = $_POST['position'];
-    $phone = $_POST['phonenumber'];
+    $phone = $_POST['phone'];
     $email_address = $_POST['email'];
     $pass = $_POST['password'];
 
@@ -19,9 +19,9 @@ if(isset($_POST)) {
     $execution = $statement_insert->execute([$fname, $lname, $uname, $department, $position, $phone, $email_address, $pass]);
 
     if($execution){
-        echo "Successfully Data Saved In Your Database";
+        echo "Successlly Registered!!";
     } else {
-        echo "There were errors while being saving your data";
+        echo "Failed To Register, Please try again!";
     }
 } else {
     echo "No Data!";
