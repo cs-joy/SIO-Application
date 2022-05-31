@@ -1,6 +1,10 @@
 <?php
 
+session_start();
 
+if(isset($_SESSION['user-sign_in'])) {
+    header("Location: index.php");
+}
 
 ?>
 <!doctype html>
@@ -96,6 +100,7 @@
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" id="signin" type="submit">Sign in</button>
+            <p>Create New Account ||> <a href="sign-up.php">Sign Up</a></p>
             <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
         </form>
     </main>

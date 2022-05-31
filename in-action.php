@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once('./db-config.php');
 
@@ -13,6 +14,7 @@ if(isset($_POST)){
     if($execution) {
         $user = $stmtselect->fetch(PDO::FETCH_ASSOC);
         if($stmtselect->rowCount() > 0){
+            $_SESSION['user-sign_in'] = $user;
             echo "1";
         } else {
             echo "No users found in the database";

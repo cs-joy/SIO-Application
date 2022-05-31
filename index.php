@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+
+if(!isset($_SESSION['user-sign_in'])){
+    header("Location: sign-in.php");
+}
+
+if(isset($_GET['signout'])){
+    session_destroy();
+    unset($_SESSION);
+    header("Location: sign-in.php");
+}
+
 ?>
 
 <!doctype html>
@@ -10,6 +22,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home | SIO Application</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -44,11 +60,16 @@
                         <li class="nav-item">
                             <a class="nav-link disabled">Disabled</a>
                         </li>
+
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
+                    <span>
+                        <button class="btn btn-success"><a href="index.php?signout=true" class="text-light text-decoration-none" >Sign Out</a></button>
+                    </span>
+
                 </div>
             </div>
         </nav>

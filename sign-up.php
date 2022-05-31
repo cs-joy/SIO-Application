@@ -92,6 +92,7 @@
             </div>
             <div class="col-12">
                 <button class="btn btn-primary" type="submit" id="signup" name="signup">Sign up</button>
+                <p>Already have an account? Click> <a href="sign-in.php">Sign In</a></p>
             </div>
         </form>
     </div>
