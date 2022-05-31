@@ -135,7 +135,7 @@
                                 'type':'success'
                             })
                             if($.trim(data) == "Successlly Registered!!") {
-                                setTimeout('window.location.href = "log-in.php"', 2000);
+                                setTimeout('window.location.href = "sign-in.php"', 2000);
                                 console.log("User are registered Successfully");
                             }
                         },
