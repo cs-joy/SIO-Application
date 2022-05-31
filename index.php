@@ -116,7 +116,7 @@ if(isset($_GET['signout'])){
         <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
             <h3>SIO Dashboard</h3>
         </div>
-        <div class="p-3 bg-info bg-opacity-10 border border-primary border-start-0 rounded-end">
+        <div class="p-3 bg-white bg-opacity-10 border border-primary border-start-0 rounded-end">
             <img src="./img/profile.jpg" class="rounded-start" height="80px" weight="80px" alt="profile">
         </div>
 
