@@ -137,9 +137,6 @@
                             if($.trim(data) == "Successlly Registered!!") {
                                 setTimeout('window.location.href = "log-in.php"', 2000);
                                 console.log("User are registered Successfully");
-                            } else if($.trim(data) == "Failed To Register, Please try again!") {
-                                setTimeout('window.location.href = "sign-up.php"', 2000);
-                                console.log("Please try again");
                             }
                         },
                         error: function(data){
