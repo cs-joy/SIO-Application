@@ -13,7 +13,6 @@
     <meta name="author" content="csjoy, cs, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
     <title>Sign In | SIO</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
@@ -96,13 +95,51 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <button class="w-100 btn btn-lg btn-primary" id="signin" type="submit">Sign in</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
         </form>
     </main>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#signin').click(function(e) {
+                var valid = this.form.checkValidity();
+                if(valid){
+                    var username = $('#floatingInput').val();
+                    var password = $('#floatingPassword').val();
 
+                    e.preventDefault();
 
-
+                    $.ajax({
+                        type: 'POST',
+                        url: 'in-action.php',
+                        data: {
+                            user: username,
+                            password: password
+                        },
+                        success: function(data){
+                            Swal.fire({
+                                'title': 'Successfully Sign In',
+                                'text': data,
+                                'type': 'success'
+                            })
+                            if($.trim(data) == "1"){
+                                setTimeout('window.location.href="index.php"', 2000);
+                            }
+                        },
+                        error: function(data){
+                            Swal.fire({
+                                'title': 'Error',
+                                'text': 'Password does not match',
+                                'type': 'error'
+                            })
+                        }
+                    });
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
